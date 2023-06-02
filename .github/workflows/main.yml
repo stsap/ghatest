@@ -10,8 +10,9 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    env:
+      pr: ${{ github.event.pull_request }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: pwd
-        run: |
-          echo ${github.event.pull_request}
-    
+      - name: env
+        run: env 
