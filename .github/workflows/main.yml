@@ -10,5 +10,8 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
-    run: |
-      echo pwd
+    steps:
+      - name: pwd
+        run: |
+          echo pwd
+    
