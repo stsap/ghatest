@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: env
         run: |
+          pwd
+          ls -la
+          echo '0' $GITHUB_TOKEN
+          echo '0.5' $token
           echo '1' $GITHUB_REF
           echo '2' ${{ github.ref }}
           echo '3' ${{ github.ref_name }}
