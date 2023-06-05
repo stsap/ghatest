@@ -7,11 +7,13 @@ on:
     types: [closed]
     
 jobs:
-  tag:
+  rename:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
       - name: env
+        with:
+          ref: ${{ github.ref }}
         run: |
           pwd
           ls -la
