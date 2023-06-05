@@ -10,9 +10,11 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
-    env:
-      pr: ${{ github.event.pull_request }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: env
-        run: env 
+        run: |
+          echo '1' $GITHUB_REF
+          echo '2' ${{ github.ref }}
+          echo '3' ${{ gibhut.ref_name }}
+          echo '4' ${{ github.head_ref }}
+          echo '5' ${{ github.base_ref }}
