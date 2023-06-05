@@ -30,12 +30,10 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: rename file
         run: |
-          git checkout -b ${{ github.head_ref }} origin/${{ github.head_ref }}
-          git pull
           git mv test4 test3
           git add .
           git commit -m "file name changed"
-          git push origin HEAD:${{ github.head_ref }}
-          git checkout ${{ github.base_ref }}
+          git push
+          git checkout -b main origin/${{ github.base_ref }}
           git merge ${{ github.head_ref }}
           git push origin ${{ github.base_ref }}
