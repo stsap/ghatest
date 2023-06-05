@@ -15,6 +15,6 @@ jobs:
         run: |
           echo '1' $GITHUB_REF
           echo '2' ${{ github.ref }}
-          echo '3' ${{ gibhut.ref_name }}
+          echo '3' ${{ gibhub.ref_name }}
           echo '4' ${{ github.head_ref }}
           echo '5' ${{ github.base_ref }}
