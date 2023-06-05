@@ -29,6 +29,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: rename file
+        run: |
           git checkout -b ${{ github.head_ref }} origin/${{ github.head_ref }}
           git pull
           git mv test4 test3
