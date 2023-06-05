@@ -32,12 +32,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: rename file
+      - name: rename_file_and_push_head
         run: |
           git mv test4 test3
           git add .
           git commit -m "file name changed"
           git push
-          git checkout -b main origin/${{ github.base_ref }}
+      - name: checkout_base_branch
+        run: git checkout ${{ github.base_ref }} origin/${{ github.base_ref }}
+      - name: merge_and_push_base_branch
+        run: |
           git merge ${{ github.head_ref }}
-          git push origin ${{ github.base_ref }}
+          git push
