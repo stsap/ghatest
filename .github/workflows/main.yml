@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-      - name: env
-        with:
-          ref: ${{ github.ref }}
+      - name: test
         run: |
           pwd
           ls -la
-          echo '0' $GITHUB_TOKEN
+          echo '0' ${GITHUB_TOKEN}
           echo '0.5' $token
+          echo '0.6' ${GITHUB_REPOSITORY}
+          echo '0.7' ${GITHUB_ACTOR}
           echo '1' $GITHUB_REF
           echo '2' ${{ github.ref }}
           echo '3' ${{ github.ref_name }}
