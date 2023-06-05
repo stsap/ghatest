@@ -39,7 +39,9 @@ jobs:
           git commit -m "file name changed"
           git push
       - name: checkout_base_branch
-        run: git checkout ${{ github.base_ref }} origin/${{ github.base_ref }}
+        run: |
+          git fetch
+          git checkout -b ${{ github.base_ref }} origin/${{ github.base_ref }}
       - name: merge_and_push_base_branch
         run: |
           git merge ${{ github.head_ref }}
