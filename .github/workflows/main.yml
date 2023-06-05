@@ -26,11 +26,12 @@ jobs:
           echo '5' ${{ github.base_ref }}
       - name: checkout
         uses: actions/checkout@v3
-      - name: git setting
+      - name: git_setting
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --globål user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-      - name: rename file
+      - name: rename_file
+        run: |
           git checkout -b ${{ github.head_ref }} origin/${{ github.head_ref }}
           git pull
           git mv test4 test3
