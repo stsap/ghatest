@@ -11,19 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-      - name: echo
-        run: |
-          pwd
-          ls -la
-          echo '0' ${GITHUB_TOKEN}
-          echo '0.5' $token
-          echo '0.6' ${GITHUB_REPOSITORY}
-          echo '0.7' ${GITHUB_ACTOR}
-          echo '1' $GITHUB_REF
-          echo '2' ${{ github.ref }}
-          echo '3' ${{ github.ref_name }}
-          echo '4' ${{ github.head_ref }}
-          echo '5' ${{ github.base_ref }}
       - name: checkout
         uses: actions/checkout@v3
         with:
