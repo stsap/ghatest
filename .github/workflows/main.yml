@@ -21,7 +21,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: rename_file_and_push_head
         run: |
-          git mv test4 test3
+          ls -1 db | egrep -v '^\d+_' | sed -e 's/\.[^\.]*$//g' | xargs -I{} mv db/{}.migration db/$(date +%Y%m%d%H%M%S)_{}.migration
           git add .
           git commit -m "file name changed"
           git push
